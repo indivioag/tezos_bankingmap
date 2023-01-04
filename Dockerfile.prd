@@ -1,0 +1,6 @@
+FROM keymetrics/pm2:16-alpine
+WORKDIR /app
+COPY /build/package*.json /app/
+RUN npm install --legacy-peer-deps
+COPY /build/ /app/
+CMD ["npm", "run", "start_docker_prd"]
