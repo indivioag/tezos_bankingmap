@@ -199,7 +199,8 @@ if "templates" not in __name__:
         alice = sp.test_account("Alice").address
         bob = sp.test_account("Bob").address
         caesar = sp.test_account("Caesar").address
-        administrator = sp.test_account("Administrator").address
+        administrator = sp.address("tz1a4TSCjtm9STUfqpqeycxzJYKQL9pMgjj5")
+        #administrator = sp.test_account("Administrator").address
         
         scenario.h1("BMT - Banking Map Token Contract")
         scenario.table_of_contents()
@@ -208,7 +209,7 @@ if "templates" not in __name__:
         scenario.show([administrator, alice, bob])
 
         scenario.h1("Contract")
-        c1 = BMT(administrator, { "decimals": "11", "name": "Test Token", "symbol": "TTT"}, {"" : "ipfs://tbd"})
+        c1 = BMT(administrator, { "decimals": "0", "name": "Banking Map Token", "symbol": "BMT"}, {"" : "ipfs://tbd"})
         scenario += c1
 
         scenario.h1("Offchain view - token_metadata")
@@ -221,9 +222,9 @@ if "templates" not in __name__:
                     sp.record(
                         token_id = 0,
                         token_info = sp.map({
-                            "decimals"    : sp.utils.bytes_of_string("11"),
-                            "name"        : sp.utils.bytes_of_string("Test Token"),
-                            "symbol"      : sp.utils.bytes_of_string("TTT")
+                            "decimals"    : sp.utils.bytes_of_string("0"),
+                            "name"        : sp.utils.bytes_of_string("Banking Map Token"),
+                            "symbol"      : sp.utils.bytes_of_string("BMT")
                             })
                     )
                 )
@@ -275,7 +276,7 @@ if "templates" not in __name__:
     sp.add_compilation_target(
         "BMT",
         BMT(
-            admin   = sp.address("xyz"),
+            admin   = sp.address("tz1a4TSCjtm9STUfqpqeycxzJYKQL9pMgjj5"),
             token_metadata = {
                 "decimals"    : "0",
                 "name"        : "Banking Map Token",

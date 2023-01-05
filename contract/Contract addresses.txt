@@ -1,0 +1,2 @@
+Banking Map Ghostnet test contract: KT1S38EMUzVpAp71froWoqK3EoboFvcCqxXz
+Banking Map Mainnet live contract: KT1HUgvcWwewjsCqdZ9V5x7qbiaXTPVBJ11c
